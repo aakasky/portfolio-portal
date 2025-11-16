@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+html {
+    scroll-padding-top: 120px;
+    scroll-behavior: smooth;
+}
+
+/* --- Base Body Styles --- */
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    -webkit-font-smoothing: antialiased;
+    /* UPDATED: Removed text color - it's now in App.tsx */
+    @apply bg-gray-50;
+}
+
+.dark body {
+    /* UPDATED: Removed text color - it's now in App.tsx */
+    @apply bg-black;
+}
+
+/* --- Modern Typography --- */
+/* Use Poppins for main headings */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    @apply font-bold tracking-tight;
+}
+
+/* --- Global Transitions --- */
+/* Add smooth transitions to links, buttons, and cards */
+a,
+button,
+[class*="bg-white/"],
+[class*="bg-gray-800/"] {
+    @apply transition-all duration-300 ease-out;
+}
+
+/* --- Reusable Glassmorphic Card Component --- */
+@layer components {
+    .glass-card {
+        @apply bg-white/40 backdrop-blur-lg rounded-2xl border border-white/20;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .glass-card {
+        /* Darker glass to sit on the black BG */
+        @apply bg-gray-900/40 backdrop-blur-lg border border-white/10;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* Remove blur on mobile for performance */
+@media (max-width: 640px) {
+    .glass-card {
+        @apply backdrop-blur-none;
+    }
+}
+
+/* --- Animated Gradient Background --- */
+.animated-gradient {
+    /* Light Mode Gradient */
+    background: linear-gradient(-45deg,
+            #f0f9ff,
+            /* sky-50 */
+            #f3e8ff,
+            /* purple-100 */
+            #e0f2fe,
+            /* light-blue-100 */
+            #ffedd5
+            /* orange-100 */
+        );
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
+.dark .animated-gradient {
+    /* Dark Mode is solid black */
+    background: #000;
+    animation: none;
+    /* Disable animation */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #3730a3;
+}
+
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #4f46e5 transparent;
+}
