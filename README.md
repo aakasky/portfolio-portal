@@ -90,10 +90,6 @@ This portfolio is designed to be easily customizable. Here is where you can edit
     1.  Search for an icon on [react-icons.github.io](https://react-icons.github.io/react-icons/).
     2.  Import it in your component: `import { FaBeer } from 'react-icons/fa';`
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 
-Designed & Built with ❤️ by [Your Name]
+Designed & Built with ❤️ by SKY
