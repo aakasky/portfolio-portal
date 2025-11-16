@@ -19,21 +19,16 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- Base Body Styles --- */
 body {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     -webkit-font-smoothing: antialiased;
-    /* UPDATED: Removed text color - it's now in App.tsx */
     @apply bg-gray-50;
 }
 
 .dark body {
-    /* UPDATED: Removed text color - it's now in App.tsx */
     @apply bg-black;
 }
 
-/* --- Modern Typography --- */
-/* Use Poppins for main headings */
 h1,
 h2,
 h3,
@@ -42,8 +37,6 @@ h4 {
     @apply font-bold tracking-tight;
 }
 
-/* --- Global Transitions --- */
-/* Add smooth transitions to links, buttons, and cards */
 a,
 button,
 [class*="bg-white/"],
@@ -51,7 +44,6 @@ button,
     @apply transition-all duration-300 ease-out;
 }
 
-/* --- Reusable Glassmorphic Card Component --- */
 @layer components {
     .glass-card {
         @apply bg-white/40 backdrop-blur-lg rounded-2xl border border-white/20;
@@ -59,41 +51,31 @@ button,
     }
 
     .dark .glass-card {
-        /* Darker glass to sit on the black BG */
         @apply bg-gray-900/40 backdrop-blur-lg border border-white/10;
         box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 }
 
-/* Remove blur on mobile for performance */
 @media (max-width: 640px) {
     .glass-card {
         @apply backdrop-blur-none;
     }
 }
 
-/* --- Animated Gradient Background --- */
 .animated-gradient {
-    /* Light Mode Gradient */
     background: linear-gradient(-45deg,
             #f0f9ff,
-            /* sky-50 */
             #f3e8ff,
-            /* purple-100 */
             #e0f2fe,
-            /* light-blue-100 */
             #ffedd5
-            /* orange-100 */
         );
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
 }
 
 .dark .animated-gradient {
-    /* Dark Mode is solid black */
     background: #000;
     animation: none;
-    /* Disable animation */
 }
 
 @keyframes gradient {

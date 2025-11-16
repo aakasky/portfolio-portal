@@ -1,13 +1,4 @@
-const SunIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591" />
-    </svg>
-);
-const MoonIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-    </svg>
-);
+import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 export default function Header({ dark, setDark }: { dark: boolean; setDark: (v: boolean) => void }) {
     return (
@@ -32,9 +23,9 @@ export default function Header({ dark, setDark }: { dark: boolean; setDark: (v: 
                     <button
                         onClick={() => setDark(!dark)}
                         aria-label="Toggle dark mode"
-                        className="ml-2 p-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-white/30 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 hover:bg-white/90 dark:hover:bg-gray-800/90"
+                        className="ml-2 p-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-400 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 hover:bg-white/90 dark:hover:bg-gray-800/90"
                     >
-                        {dark ? <SunIcon /> : <MoonIcon />}
+                        {dark ? <MdOutlineLightMode /> : <MdDarkMode />}
                     </button>
                 </nav>
 
@@ -42,9 +33,9 @@ export default function Header({ dark, setDark }: { dark: boolean; setDark: (v: 
                     <button
                         onClick={() => setDark(!dark)}
                         aria-label="Toggle dark mode"
-                        className="ml-2 p-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border border-white/30 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 hover:bg-white/90 dark:hover:bg-gray-800/90"
+                        className="ml-2 p-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-400 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 hover:bg-white/90 dark:hover:bg-gray-800/90"
                     >
-                        {dark ? <SunIcon /> : <MoonIcon />}
+                        {dark ? <MdOutlineLightMode /> : <MdDarkMode />}
                     </button>
                 </div>
             </div>

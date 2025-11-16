@@ -87,9 +87,9 @@ const ProjectCard = ({ project, delay }: { project: typeof projects[0], delay: n
     return (
         <div
             ref={ref}
-            className="glass-card flex flex-col overflow-hidden rounded-lg shadow-lg
-                       transition-all duration-300 ease-out transform hover:scale-105
-                       w-80 md:w-96 flex-shrink-0"
+            className="glass-card flex flex-col overflow-hidden rounded-xl shadow-lg
+                       transition-all duration-300 ease-out transform hover:scale-102
+                       hover:rounded-4xl w-80 md:w-96 shrink-0"
             style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -97,7 +97,7 @@ const ProjectCard = ({ project, delay }: { project: typeof projects[0], delay: n
             }}
         >
             <div className="w-full h-48 flex items-center justify-center space-x-6 p-4
-                            bg-white/5 dark:bg-black/10 backdrop-blur-sm border-b border-white/10">
+                            bg-white/5 dark:bg-black/10 backdrop-blur-sm border-b border-gray-400">
                 {project.tags.slice(0, 3).map((tag) => (
                     <div key={tag} className="text-5xl text-gray-700 dark:text-gray-400
                                         transition-transform duration-200 hover:scale-110">

@@ -50,14 +50,14 @@ export default function About() {
                 <div className="mt-6 flex flex-wrap gap-3 justify-center">
                     <a
                         href="mailto:ay1117680@gmail.com"
-                        className="inline-flex items-center px-4 py-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-white/90 dark:hover:bg-gray-800/90"
+                        className="inline-flex items-center px-4 py-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-400 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-white/90 dark:hover:bg-gray-800/90"
                     >
                         <FaEnvelope className="mr-2" />
                         Mail
                     </a>
                     <a
                         href="tel:+919820809562"
-                        className="inline-flex items-center px-4 py-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-white/90 dark:hover:bg-gray-800/90"
+                        className="inline-flex items-center px-4 py-2 rounded-lg bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm border-2 border-gray-400 dark:border-gray-700/50 text-gray-800 dark:text-gray-200 text-sm font-medium hover:bg-white/90 dark:hover:bg-gray-800/90"
                     >
                         <FaPhone className="mr-2" />
                         Call
