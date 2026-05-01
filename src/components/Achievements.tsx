@@ -15,7 +15,7 @@ const achievements = [
     },
 ];
 
-const AchievementCard = ({ achievement, delay }: { achievement: typeof achievements[0], delay: number }) => {
+const AchievementCard = ({ achievement }: { achievement: typeof achievements[0] }) => {
     return (
         <div
             className="glass-card p-6 flex flex-col items-center text-center rounded-lg shadow-lg
@@ -45,11 +45,10 @@ export default function Achievements() {
             <div className="w-16 h-1 bg-indigo-600 mx-auto rounded-full mb-12"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                {achievements.map((item, index) => (
+                {achievements.map((item) => (
                     <AchievementCard
                         key={item.title}
                         achievement={item}
-                        delay={index * 0.1}
                     />
                 ))}
             </div>

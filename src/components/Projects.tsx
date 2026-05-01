@@ -58,7 +58,7 @@ const projects = [
     },
 ];
 
-const ProjectCard = ({ project, delay }: { project: typeof projects[0], delay: number }) => {
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
     return (
         <div
             className="glass-card flex flex-col overflow-hidden rounded-xl shadow-lg
@@ -105,11 +105,10 @@ export default function Projects() {
             <div className="w-16 h-1 bg-indigo-600 mx-auto rounded-full mb-6"></div>
 
             <div className="flex flex-nowrap overflow-x-auto pb-12 gap-8 custom-scrollbar">
-                {projects.map((project, index) => (
+                {projects.map((project) => (
                     <ProjectCard
                         key={project.title}
                         project={project}
-                        delay={index * 0.1}
                     />
                 ))}
             </div>

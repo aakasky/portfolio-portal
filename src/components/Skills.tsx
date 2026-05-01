@@ -15,12 +15,10 @@ import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 const TechnologyCard = ({
     icon,
-    name,
-    delay
+    name
 }: {
     icon: React.ReactNode;
     name: string;
-    delay: number;
 }) => {
     return (
         <div
@@ -62,12 +60,11 @@ export default function Skills() {
                 <div className="w-16 h-1 bg-indigo-600 mx-auto rounded-full mb-6"></div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-                    {technologies.map((tech, index) => (
+                    {technologies.map((tech) => (
                         <TechnologyCard
                             key={tech.name}
                             name={tech.name}
                             icon={tech.icon}
-                            delay={index * 0.05}
                         />
                     ))}
                 </div>
