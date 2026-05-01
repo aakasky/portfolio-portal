@@ -1,26 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
 import { FaAward } from 'react-icons/fa';
-
-const useIntersectionObserver = (options: IntersectionObserverInit): [(node: HTMLElement | null) => void, IntersectionObserverEntry | null] => {
-    const [entry, setEntry] = useState<IntersectionObserverEntry | null>(null);
-    const [node, setNode] = useState<HTMLElement | null>(null);
-    const observer = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-        if (observer.current) {
-            observer.current.disconnect();
-        }
-        observer.current = new IntersectionObserver(([entry]) => setEntry(entry), options);
-        if (node) {
-            observer.current.observe(node);
-        }
-        return () => {
-            observer.current?.disconnect();
-        };
-    }, [node, options]);
-
-    return [setNode, entry];
-};
 
 const achievements = [
     {
@@ -38,19 +16,10 @@ const achievements = [
 ];
 
 const AchievementCard = ({ achievement, delay }: { achievement: typeof achievements[0], delay: number }) => {
-    const [ref, entry] = useIntersectionObserver({ threshold: 0.1 });
-    const isVisible = entry?.isIntersecting;
-
     return (
         <div
-            ref={ref}
             className="glass-card p-6 flex flex-col items-center text-center rounded-lg shadow-lg
                  transition-all duration-300 ease-out transform hover:scale-105"
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s, box-shadow 0.2s ease, transform 0.2s ease`,
-            }}
         >
             <div className="text-4xl text-indigo-400 mb-4">
                 <FaAward />

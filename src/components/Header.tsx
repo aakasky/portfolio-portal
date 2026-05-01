@@ -1,12 +1,12 @@
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-export default function Header({ dark, setDark }: { dark: boolean; setDark: (v: boolean) => void }) {
+export default function Header({ dark, setDark }: Readonly<{ dark: boolean; setDark: (v: boolean) => void }>) {
     return (
         <header className="sticky top-0 z-50 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border-b border-white/30 dark:border-gray-800/50 shadow-sm">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
                 <div className="flex items-center gap-3">
-                    <div className="rounded-full bg-gradient-to-br from-indigo-500 to-pink-400 w-12 h-12 flex items-center justify-center text-white font-semibold shadow-lg">AY</div>
+                    <div className="rounded-full bg-linear-to-br from-indigo-500 to-pink-400 w-12 h-12 flex items-center justify-center text-white font-semibold shadow-lg">AY</div>
                     <div>
                         <h1 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">Aakash Yadav</h1>
                         <p className="text-xs text-gray-500 dark:text-gray-400">Senior Software Developer</p>

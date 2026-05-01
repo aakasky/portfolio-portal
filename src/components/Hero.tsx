@@ -1,45 +1,7 @@
-import { useState, useEffect } from 'react';
 import { FaLinkedinIn, FaGithub, FaEnvelope, FaTelegram } from "react-icons/fa";
-
-const useTypewriter = (words: string[], speed = 100, delay = 2000) => {
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [currentText, setCurrentText] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [typingSpeed, setTypingSpeed] = useState(speed);
-
-    useEffect(() => {
-        const handleTyping = () => {
-            const currentWord = words[currentWordIndex];
-
-            if (isDeleting) {
-                setCurrentText(currentWord.substring(0, currentText.length - 1));
-                setTypingSpeed(speed / 1.5);
-            } else {
-                setCurrentText(currentWord.substring(0, currentText.length + 1));
-                setTypingSpeed(speed);
-            }
-
-            if (!isDeleting && currentText === currentWord) {
-                setTimeout(() => setIsDeleting(true), delay);
-            } else if (isDeleting && currentText === '') {
-                setIsDeleting(false);
-                setCurrentWordIndex((prev) => (prev + 1) % words.length);
-                setTypingSpeed(speed);
-            }
-        };
-
-        const timer = setTimeout(handleTyping, typingSpeed);
-        return () => clearTimeout(timer);
-
-    }, [currentText, isDeleting, typingSpeed, currentWordIndex, words, speed, delay]);
-
-    return currentText;
-};
+import Typewriter from 'typewriter-effect';
 
 export default function Hero() {
-    const wordsToType = ['reliable', 'scalable', 'performant', 'full-stack'];
-    const typedText = useTypewriter(wordsToType, 100, 2000);
-
     return (
         <section className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-3">
@@ -50,7 +12,15 @@ export default function Hero() {
                 <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mt-3 text-gray-900 dark:text-white">
                     Building &nbsp;
                     <span className="text-indigo-600 dark:text-indigo-400 min-h-[60px] md:min-h-[72px] inline-block w-[240px]">
-                        {typedText}
+                        <Typewriter
+                            options={{
+                                strings: ['reliable', 'scalable', 'performant', 'full-stack'],
+                                autoStart: true,
+                                loop: true,
+                                delay: 100,
+                                deleteSpeed: 70,
+                            }}
+                        />
                     </span>
                     applications that solve real problems.
                 </h2>

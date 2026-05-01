@@ -1,39 +1,17 @@
-import { useRef, useEffect, useState } from 'react';
 import {
     SiReact,
     SiSpringboot,
     SiJavascript,
     SiTypescript,
     SiNodedotjs,
-    SiPostgresql,
     SiDocker,
     SiGit,
     SiTailwindcss,
-    SiHtml5,
-    SiCss3
+    SiAngular,
+    SiMongodb
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
-
-const useIntersectionObserver = (options: IntersectionObserverInit): [(node: HTMLElement | null) => void, IntersectionObserverEntry | null] => {
-    const [entry, setEntry] = useState<IntersectionObserverEntry | null>(null);
-    const [node, setNode] = useState<HTMLElement | null>(null);
-    const observer = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-        if (observer.current) {
-            observer.current.disconnect();
-        }
-        observer.current = new IntersectionObserver(([entry]) => setEntry(entry), options);
-        if (node) {
-            observer.current.observe(node);
-        }
-        return () => {
-            observer.current?.disconnect();
-        };
-    }, [node, options]);
-
-    return [setNode, entry];
-};
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
 const TechnologyCard = ({
     icon,
@@ -44,22 +22,11 @@ const TechnologyCard = ({
     name: string;
     delay: number;
 }) => {
-    const [ref, entry] = useIntersectionObserver({
-        threshold: 0.1,
-    });
-    const isVisible = entry?.isIntersecting;
-
     return (
         <div
-            ref={ref}
             className="glass-card p-4 flex flex-col items-center justify-center rounded-lg
                  shadow-lg transition-all duration-300 ease-out
                  transform hover:scale-105 hover:-translate-y-1 hover:shadow-indigo-500/30"
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s, box-shadow 0.2s ease, transform 0.2s ease`,
-            }}
         >
             <div className="text-4xl mb-2 text-indigo-400">
                 {icon}
@@ -75,15 +42,15 @@ const technologies = [
     { name: 'Java', icon: <FaJava /> },
     { name: 'Spring Boot', icon: <SiSpringboot /> },
     { name: 'React', icon: <SiReact /> },
+    { name: 'Angular', icon: <SiAngular /> },
     { name: 'TypeScript', icon: <SiTypescript /> },
     { name: 'JavaScript', icon: <SiJavascript /> },
     { name: 'Node.js', icon: <SiNodedotjs /> },
-    { name: 'PostgreSQL', icon: <SiPostgresql /> },
+    { name: 'SQL', icon: <AiOutlineConsoleSql /> },
+    { name: 'MongoDB', icon: <SiMongodb /> },
     { name: 'Docker', icon: <SiDocker /> },
     { name: 'Git', icon: <SiGit /> },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
-    { name: 'HTML5', icon: <SiHtml5 /> },
-    { name: 'CSS3', icon: <SiCss3 /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss /> }
 ];
 
 export default function Skills() {

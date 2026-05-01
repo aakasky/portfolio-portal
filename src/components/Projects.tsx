@@ -1,4 +1,3 @@
-import React, { useRef, useEffect, useState } from 'react';
 import { FaArrowRight, FaCode, FaJava } from 'react-icons/fa';
 import {
     SiReact,
@@ -13,27 +12,6 @@ import {
     SiSocketdotio,
     SiMongodb
 } from 'react-icons/si';
-
-const useIntersectionObserver = (options: IntersectionObserverInit): [(node: HTMLElement | null) => void, IntersectionObserverEntry | null] => {
-    const [entry, setEntry] = useState<IntersectionObserverEntry | null>(null);
-    const [node, setNode] = useState<HTMLElement | null>(null);
-    const observer = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-        if (observer.current) {
-            observer.current.disconnect();
-        }
-        observer.current = new IntersectionObserver(([entry]) => setEntry(entry), options);
-        if (node) {
-            observer.current.observe(node);
-        }
-        return () => {
-            observer.current?.disconnect();
-        };
-    }, [node, options]);
-
-    return [setNode, entry];
-};
 
 const TechPill = ({ children }: { children: React.ReactNode }) => (
     <span className="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 rounded-full px-3 py-1 text-xs font-medium mr-2 mb-2">
@@ -81,20 +59,11 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, delay }: { project: typeof projects[0], delay: number }) => {
-    const [ref, entry] = useIntersectionObserver({ threshold: 0.1 });
-    const isVisible = entry?.isIntersecting;
-
     return (
         <div
-            ref={ref}
             className="glass-card flex flex-col overflow-hidden rounded-xl shadow-lg
                        transition-all duration-300 ease-out transform hover:scale-102
                        hover:rounded-4xl w-80 md:w-96 shrink-0"
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s, box-shadow 0.2s ease, transform 0.2s ease`,
-            }}
         >
             <div className="w-full h-48 flex items-center justify-center space-x-6 p-4
                             bg-white/5 dark:bg-black/10 backdrop-blur-sm border-b border-gray-400">
@@ -106,7 +75,7 @@ const ProjectCard = ({ project, delay }: { project: typeof projects[0], delay: n
                 ))}
             </div>
 
-            <div className="p-6 flex-grow flex flex-col justify-between">
+            <div className="p-6 grow flex flex-col justify-between">
                 <div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                         {project.title}
