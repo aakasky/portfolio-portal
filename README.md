@@ -18,7 +18,7 @@ A sleek, high-performance developer portfolio built with **React**, **TypeScript
 * **Language:** [TypeScript](https://www.typescriptlang.org/)
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 * **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
-* **Build Tool:** [Vite](https://vitejs.dev/) (Recommended) or Create React App
+* **Build Tool:** [Vite](https://vitejs.dev/)
 
 ## 📦 Installation & Setup
 
