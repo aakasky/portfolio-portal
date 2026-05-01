@@ -30,21 +30,21 @@ A sleek, high-performance developer portfolio built with **React**, **TypeScript
 
 2.  **Install dependencies:**
     ```bash
-    npm install
+    pnpm i
     # or
     yarn install
     ```
 
 3.  **Run the development server:**
     ```bash
-    npm run dev
+    pnpm dev
     # or
-    npm start
+    pnpm start
     ```
 
 4.  **Build for production:**
     ```bash
-    npm run build
+    pnpm build
     ```
 
 ## 🎨 Customization Guide
