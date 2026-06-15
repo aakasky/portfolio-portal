@@ -69,14 +69,24 @@ export default function Experience() {
                 <div className="space-y-8">
 
                     <PresentTimelineItem
+                        title="Software Developement Engineer"
+                        company="Diebold Nixdorf"
+                        date="June 2026 — Present"
+                        tags="React · Spring Boot · Architecture"
+                    >
+                        <li>Leading full-stack development of the VCM Portal (Vynamic Cash Management) — features, performance and architecture.</li>
+                        <li>Driving technical design, code quality, and mentoring team members.</li>
+                    </PresentTimelineItem>
+
+                    <PastTimelineItem
                         title="Senior Software Developer"
                         company="Quess Corp"
-                        date="June 2025 — Present"
+                        date="June 2025 — May 2026"
                         tags="React · Spring Boot · Architecture"
                     >
                         <li>Leading full-stack development of the Global Research Portal — features, performance and architecture.</li>
                         <li>Driving technical design, code quality, and mentoring team members.</li>
-                    </PresentTimelineItem>
+                    </PastTimelineItem>
 
                     <PastTimelineItem
                         title="Java Full Stack Developer"
