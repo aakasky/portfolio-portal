@@ -69,13 +69,13 @@ export default function Experience() {
                 <div className="space-y-8">
 
                     <PresentTimelineItem
-                        title="Software Developement Engineer"
+                        title="Software Development Engineer"
                         company="Diebold Nixdorf"
                         date="June 2026 — Present"
                         tags="React · Spring Boot · Architecture"
                     >
-                        <li>Leading full-stack development of the VCM Portal (Vynamic Cash Management) — features, performance and architecture.</li>
-                        <li>Driving technical design, code quality, and mentoring team members.</li>
+                        <li>Leading Full Stack Development of VCM (Vynamic Cash Management) and CCA (Cassette Config Advisor), developing scalable web applications using React, Java, and Spring Boot.</li>
+                        <li>Contributing to end-to-end application development, including designing responsive React interfaces, developing Restful APIs.</li>
                     </PresentTimelineItem>
 
                     <PastTimelineItem
